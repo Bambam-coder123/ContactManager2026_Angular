@@ -1,0 +1,25 @@
+
+<div id="theList" class="contact-list-container">
+    <div *ngFor="let item of contacts; let i = index;" class="contact-card row align-items-center">
+        <div class="col-2 contact-field">{{ item.firstName }}</div>
+        <div class="col-2 contact-field">{{ item.lastName }}</div>
+        <div class="col-2 contact-field">{{ item.emailAddress }}</div>
+        <div class="col-2 contact-field">{{ item.phoneNumber }}</div>
+        <div class="col-2 contact-field">{{ item.status }}</div>
+        <div class="col-2 contact-field">{{ item.dob }}</div>
+        <div class="col-2">
+            <img class="contact-image" src="http://localhost/contactapi2026/uploads/{{item.imageName}}"
+                alt="{{item.imageName}}" />
+        </div>
+
+        <div class="col-2 d-flex gap-2">
+            <button class="btn btn-success btn-sm" [routerLink]="['/update', item.contactID]">Update</button>
+            <button class="btn btn-danger btn-sm" (click)="deleteContact(item.contactID ?? 0)">Delete</button>
+        </div>
+    </div>    
+
+</div>
+
+<div id="links" class="mt-4 text-center">
+    <button class="btn btn-sm btn-primary me-2" routerLink="/add">Add Contact</button>
+</div>
